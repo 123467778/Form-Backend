@@ -33,6 +33,7 @@ public class UsersServices {
         }
         Users savedUser = usersRepository.save(users);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+//        return usersRepository.save(users);
 
     }
 
@@ -40,6 +41,7 @@ public class UsersServices {
         Users user = usersRepository.findById(id).orElseThrow();
         user.setName(newusers.getName());
         user.setEmail(newusers.getEmail());
+        user.setPassword(newusers.getPassword());
         return usersRepository.save(user);
 
     }
